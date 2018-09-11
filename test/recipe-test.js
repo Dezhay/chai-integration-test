@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 
 describe('Recipes', function() {
 	before(function() {
-		return runserver();
+		return runServer();
 	});
 
 	after(function() {
