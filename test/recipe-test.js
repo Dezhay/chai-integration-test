@@ -65,7 +65,10 @@ describe('Recipes', function() {
 			.send(updateData)
 		})
 		.then(function(res) {
-			 res.should.have.status(204);
+			 expect(res).to.have.status(200);
+			 expect(res).to.be.json;
+			 expect(res.body).to.be.a('object');
+			 expect(res.body).to.deep.equal(updateData);
 		});
 	});
 
@@ -77,7 +80,7 @@ describe('Recipes', function() {
 			.delete(`/recipes/${res.body[0].id}`)
 		})
 		.then(function(res) {
-			res.should.have.status(204);
+			expect(res).to.have.status(204);
 		});
 	});
 });
