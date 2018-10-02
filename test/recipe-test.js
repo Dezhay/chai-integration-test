@@ -52,7 +52,7 @@ describe('Recipes', function() {
 
 		const updateData = {
 			name: 'foo',
-			ingridients: ['bizz', 'bang']
+			ingredients: ['bizz', 'bang']
 		};
 
 		return chai.request(app)
@@ -74,7 +74,7 @@ describe('Recipes', function() {
 		.get('/recipes')
 		.then(function(res) {
 			return chai.request(app)
-			.delete(`/recipes/${res.body[0].id}`)
+			.delete(`/recipes/${res.body[0].id}`);
 		})
 		.then(function(res) {
 			expect(res).to.have.status(204);
